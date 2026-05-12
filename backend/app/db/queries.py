@@ -29,13 +29,14 @@ def delete_company(company_id):
     return result.data
 
 
-def insert_brief(company_id, summary, service_angle, buying_signal, data_quality):
+def insert_brief(company_id, summary, service_angle, buying_signal, data_quality, contact_info=None):
     result = supabase.table("company_briefs").insert({
         "company_id": company_id,
         "summary": summary,
         "service_angle": service_angle,
         "buying_signal": buying_signal,
-        "data_quality": data_quality
+        "data_quality": data_quality,
+        "contact_info": contact_info
     }).execute()
     return result.data[0]
 
